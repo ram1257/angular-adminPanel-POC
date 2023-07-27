@@ -1,0 +1,65 @@
+<!-- main-layout.component.html -->
+<div class="flex h-screen">
+  <!-- Sidebar -->
+  <div
+    class="bg-gray-800 text-white w-64 p-4 fixed min-h-full"
+    [ngClass]="{ hidden: showSideBar }"
+  >
+    <div class="flex gap-4">
+      <img src="../../../assets/humburger.svg" alt="" class="mb-4" (click)="toggleSideBarButton()" />
+      <img
+        src="../../../assets/travel-logo-horzontal.svg"
+        alt=""
+        class="mb-4 w-40"
+      />
+    </div>
+    <ul class="space-y-2">
+      <li>
+        <a
+          [routerLink]="'/dashboard'"
+          routerLinkActive="bg-blue-600 hover:bg-blue-600"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="block py-2 px-4 rounded hover:bg-gray-700"
+          >Manage users</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="'/dashboard/manage-notification'"
+          routerLinkActive="bg-blue-600 hover:bg-blue-600"
+          class="block py-2 px-4 rounded hover:bg-gray-700"
+          >Manage Notification</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/dashboard/profile"
+          routerLinkActive="bg-blue-600 hover:bg-blue-600"
+          class="block py-2 px-4 rounded hover:bg-gray-700"
+          >Profile</a
+        >
+      </li>
+      <li>
+        <a routerLink="/" class="block py-2 px-4 rounded hover:bg-gray-700"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 overflow-y-auto" [ngClass]="{ 'ml-64': !showSideBar }">
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-4 shadow-sm p-4">
+      <img src="../../../assets/humburger.svg" alt="" *ngIf="showSideBar" (click)="toggleSideBarButton()" />
+      <h1 class="text-xl font-bold cursor-pointer ml-auto">
+        Welcome, {{userName}}!
+      </h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
