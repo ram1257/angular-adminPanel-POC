@@ -1,4 +1,120 @@
 <h2 class="text-3xl font-semibold">Profile</h2>
-<div class="flex justify-center mt-10">
-  <img src="../../../assets/construction.svg" alt="" class="w-[40%]">
+<div class="max-w-3xl mx-auto mt-8 p-4">
+  <div class="mb-9 flex gap-9 items-center">
+    <img
+      [src]="profileImg"
+      alt="profile"
+      class="rounded-full w-28 border-2 border-gray-400 shadow-lg p-4 bg-white"
+    />
+    <div>
+      <p>{{ userName }}</p>
+      <p>{{ email }}</p>
+    </div>
+  </div>
+  <div>
+    <ul class="flex border-b">
+      <li class="mr-1">
+        <a
+          class="bg-white inline-block  py-2 px-4 text-blue-700 font-semibold"
+          (click)="activeTab = 'editProfile'"
+          [ngClass]="{'bg-blue-200 border-l border-t border-r rounded-t':activeTab === 'editProfile','bg-white':activeTab !== 'editProfile'}"
+        >
+          Edit Profile
+        </a>
+      </li>
+      <li class="mr-1">
+        <a
+          [ngClass]="{'bg-blue-100 border-l border-t border-r rounded-t':activeTab === 'changePassword','bg-white':activeTab !== 'changePassword'}"
+          class=" inline-block py-2 px-4 text-blue-700 hover:text-blue-800 font-semibold"
+          (click)="activeTab = 'changePassword'"
+        >
+          Change Password
+        </a>
+      </li>
+    </ul>
+
+    <div *ngIf="activeTab === 'editProfile'">
+      <div class="mt-4">
+        <label class="block mb-2 font-bold text-gray-600">User Name</label>
+        <input
+          class="w-full border rounded-lg p-2"
+          type="text"
+          [(ngModel)]="userName"
+          placeholder="Enter your user name"
+        />
+      </div>
+      <div class="mt-4">
+        <label class="block mb-2 font-bold text-gray-600">Email</label>
+        <input
+          class="w-full border rounded-lg p-2"
+          type="email"
+          [(ngModel)]="email"
+          placeholder="Enter your email"
+        />
+      </div>
+      <div class="mt-8 flex justify-end">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4"
+          (click)="saveProfile()"
+        >
+          Save
+        </button>
+        <button
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          (click)="cancelProfileEdit()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+    <div *ngIf="activeTab === 'changePassword'">
+      <div class="mt-4">
+        <label class="block mb-2 font-bold text-gray-600">Old Password</label>
+        <input
+          class="w-full border rounded-lg p-2"
+          type="password"
+          [(ngModel)]="oldPassword"
+          placeholder="Enter your old password"
+        />
+      </div>
+      <div class="mt-4">
+        <label class="block mb-2 font-bold text-gray-600">New Password</label>
+        <input
+          class="w-full border rounded-lg p-2"
+          type="password"
+          [(ngModel)]="newPassword"
+          placeholder="Enter your new password"
+        />
+      </div>
+      <div class="mt-4">
+        <label class="block mb-2 font-bold text-gray-600"
+          >Confirm New Password</label
+        >
+        <input
+          class="w-full border rounded-lg p-2"
+          type="password"
+          [(ngModel)]="confirmNewPassword"
+          placeholder="Confirm your new password"
+        />
+      </div>
+      <div class="mt-8 flex justify-end">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4"
+          (click)="savePassword()"
+        >
+          Save
+        </button>
+        <button
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          (click)="cancelPasswordChange()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="false" class="flex justify-center mt-10">
+  <img src="../../../assets/construction.svg" alt="" class="w-[40%]" />
 </div>

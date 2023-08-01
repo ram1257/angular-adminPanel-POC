@@ -17,7 +17,7 @@ export class MainLayoutComponent {
     private loginService: LoginServicesService
   ) {
    this.userInfoSub =  this.loginService.mySubject.subscribe((res) => {
-      this.userName = res.username;
+      this.userName = res?.username;
       console.log(res, 'response');
     });
   }

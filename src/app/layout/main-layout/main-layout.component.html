@@ -2,7 +2,7 @@
 <div class="flex h-screen">
   <!-- Sidebar -->
   <div
-    class="bg-gray-800 text-white w-64 p-4 fixed min-h-full"
+    class=" bg-white w-64 p-4 fixed min-h-full shadow-xl"
     [ngClass]="{ hidden: showSideBar }"
   >
     <div class="flex gap-4">
@@ -17,30 +17,30 @@
       <li>
         <a
           [routerLink]="'/dashboard'"
-          routerLinkActive="bg-blue-600 hover:bg-blue-600"
+          routerLinkActive="font-bold bg-gray-100"
           [routerLinkActiveOptions]="{ exact: true }"
-          class="block py-2 px-4 rounded hover:bg-gray-700"
+          class="block py-2 px-4 rounded hover:bg-gray-100"
           >Manage users</a
         >
       </li>
       <li>
         <a
           [routerLink]="'/dashboard/manage-notification'"
-          routerLinkActive="bg-blue-600 hover:bg-blue-600"
-          class="block py-2 px-4 rounded hover:bg-gray-700"
+          routerLinkActive="bg-gray-100 font-bold "
+          class="block py-2 px-4 rounded hover:bg-gray-100"
           >Manage Notification</a
         >
       </li>
       <li>
         <a
           routerLink="/dashboard/profile"
-          routerLinkActive="bg-blue-600 hover:bg-blue-600"
-          class="block py-2 px-4 rounded hover:bg-gray-700"
+          routerLinkActive="bg-gray-100 font-bold"
+          class="block py-2 px-4 rounded hover:bg-gray-100"
           >Profile</a
         >
       </li>
       <li>
-        <a routerLink="/" class="block py-2 px-4 rounded hover:bg-gray-700"
+        <a routerLink="/" class="block py-2 px-4 rounded hover:bg-gray-100"
           >Logout</a
         >
       </li>
@@ -50,7 +50,7 @@
   <!-- Main Content -->
   <div class="flex-1 overflow-y-auto" [ngClass]="{ 'ml-64': !showSideBar }">
     <!-- Header -->
-    <header class="flex justify-between items-center mb-4 shadow-sm p-4">
+    <header class="flex justify-between items-center mb-4 p-4  shadow-lg">
       <img src="../../../assets/humburger.svg" alt="" *ngIf="showSideBar" (click)="toggleSideBarButton()" />
       <h1 class="text-xl font-bold cursor-pointer ml-auto">
         Welcome, {{userName}}!

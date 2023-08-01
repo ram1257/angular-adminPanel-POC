@@ -6,7 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginServicesService {
-  mySubject = new Subject<any>();
+  mySubject = new BehaviorSubject<any>({});
   constructor(private Http: HttpClient) {}
 
   setUserinfo(user: any) {
