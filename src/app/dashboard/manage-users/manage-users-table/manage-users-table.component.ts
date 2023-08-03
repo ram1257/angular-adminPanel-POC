@@ -41,9 +41,9 @@ export class MangeUsersTableComponent {
   }
 
   deleteUser(user: any): void {
-    this.userInfoService.deleteUser(user.userId).subscribe({
+    this.userInfoService.deleteUser(user.id).subscribe({
       next: (val: any) => {
-        alert('Employee deleted');
+        alert('User deleted');
         this.getUserData();
       },
       error: (err: any) => console.log(err),

@@ -13,7 +13,7 @@ export class UserInformationService {
     return this._http.get('http://localhost:3000/userInfo');
   }
   getUser(userId:string): Observable<any> {
-    return this._http.get('http://localhost:3000/userInfo?userId='+userId);
+    return this._http.get('http://localhost:3000/userInfo?id='+userId);
   }
   
   getNotificationList(): Observable<any> {
@@ -21,6 +21,15 @@ export class UserInformationService {
   }
 
   deleteUser(userId: string): Observable<any> {
-    return this._http.delete(`http://localhost:3000/userInfo?userId=${userId}`);
+    return this._http.delete(`http://localhost:3000/userInfo/${userId}`);
+  }
+
+  updateUser(id: string, data: any): Observable<any> {
+    console.log(id, data, 'data test');
+    return this._http.patch(`http://localhost:3000/userInfo/${id}`, data);
+  }
+
+  deleteNotification(userId: string): Observable<any> {
+    return this._http.delete(`http://localhost:3000/notification/${userId}`);
   }
 }
