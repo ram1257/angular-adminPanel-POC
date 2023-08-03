@@ -20,3 +20,7 @@ export class LoginServicesService {
     });
   }
 }
+
+
+// username:kminchelle
+// password: 0lelplR
