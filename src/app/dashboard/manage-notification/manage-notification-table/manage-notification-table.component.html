@@ -1,28 +1,25 @@
 <div class="container mx-auto py-6">
     <div class="overflow-x-auto">
-      <table class="min-w-full border divide-y">
+      <table class="min-w-full border divide-y table-fixed">
         <thead class="bg-gray-50 text-left">
           <tr>
-            <th class="px-4 py-2">First Name</th>
-            <th class="px-4 py-2">Last Name</th>
-            <th class="px-4 py-2">Location</th>
-            <th class="px-4 py-2">Date of Birth</th>
-            <th class="px-4 py-2">Phone Number</th>
-            <th class="px-4 py-2">Username</th>
+            <th class="px-4 py-2">Notification Title</th>
+            <th class="px-4 py-2">Published</th>
+            <th class="px-4 py-2">Description</th>
+            <th class="px-4 py-2">Status</th>
             <th class="px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody class="bg-white divide-y">
-          <tr *ngFor="let user of users">
-            <td class="px-4 py-2">{{ user.firstName }}</td>
-            <td class="px-4 py-2">{{ user.lastName }}</td>
-            <td class="px-4 py-2">{{ user.location }}</td>
-            <td class="px-4 py-2">{{ user.dob }}</td>
-            <td class="px-4 py-2">{{ user.phoneNumber }}</td>
-            <td class="px-4 py-2">{{ user.username }}</td>
+          <tr *ngFor="let notification of notificationList">
+            <td class="px-4 py-2">{{ notification.notificationTitle }}</td>
+            <td class="px-4 py-2">{{ notification.createdDate | date }}</td>
+            <td class="px-4 py-2 text-clip">{{ notification?.description | slice:0:15 }}
+              <span *ngIf="notification.description.length > 15">...</span></td>
+            <td class="px-4 py-2">{{ notification.status }}</td>
             <td class="px-4 py-2 flex space-x-2">
-              <button class="text-green-600 hover:text-green-800" (click)="viewUser(user)">View</button>
-              <button class="text-red-600 hover:text-red-800" (click)="deleteUser(user)">Delete</button>
+              <button class="text-green-600 hover:text-green-800" (click)="viewUser(notification)">View</button>
+              <button class="text-red-600 hover:text-red-800" (click)="deleteUser(notification)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -32,9 +29,9 @@
 
   <app-popup-modal [isVisible]="showPopup" (closePopUP)="togglePopUP()">
     <h1 class="text-2xl font-bold">User information</h1>
-    <p>{{SelectedUser?.firstName}}</p>
-    <p>{{SelectedUser?.lastName}}</p>
-    <p>{{SelectedUser?.location}}</p>
-    <p>{{SelectedUser?.phoneNumber}}</p>
+    <p>{{SelectedUser?.notificationTitle}}</p>
+    <p>{{SelectedUser?.createdDate | date}}</p>
+    <p>{{SelectedUser?.description}}</p>
+    <p>{{SelectedUser?.status}}</p>
   </app-popup-modal>
   

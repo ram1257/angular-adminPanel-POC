@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -10,11 +10,13 @@ import { LoginPageComponent } from './auth/login-page/login-page.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { ManageNotificationModule } from './dashboard/manage-notification/manage-notification.module';
-import { MangeUsersTableComponent } from './dashboard/mange-users/mange-users-table/mange-users-table.component';
-import { ManageUsersComponent } from './dashboard/mange-users/manage-users.component';
+import { MangeUsersTableComponent } from './dashboard/manage-users/manage-users-table/manage-users-table.component';
+import { ManageUsersComponent } from './dashboard/manage-users/manage-users.component';
+import { EditUserComponent } from './dashboard/manage-users/edit-user/edit-user.component';
+
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, MainLayoutComponent, ManageUsersComponent, ProfileComponent, MangeUsersTableComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ManageNotificationModule],
+  declarations: [AppComponent, LoginPageComponent, MainLayoutComponent, ManageUsersComponent, ProfileComponent, MangeUsersTableComponent, EditUserComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ManageNotificationModule,ReactiveFormsModule],
   exports:[ManageNotificationModule],
   providers: [],
   bootstrap: [AppComponent],

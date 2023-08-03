@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserInformationService } from 'src/app/services/user-information.service';
 
 interface User {
   firstName: string;
@@ -16,7 +17,9 @@ interface User {
 })
 export class ManageNotificationTableComponent {
   showPopup: boolean = false;
-  SelectedUser: User;
+  SelectedUser: any;
+  notificationList: any;
+  constructor(private notificationService: UserInformationService) {}
 
   togglePopUP() {
     this.showPopup = !this.showPopup;
@@ -49,12 +52,20 @@ export class ManageNotificationTableComponent {
     },
   ];
 
+  ngOnInit() {
+    console.log(this.notificationService.getNotificationList().subscribe(data=>{
+      this.notificationList = data
+      console.log(this.notificationList,"notification")
+    }));
+    
+  }
+
   deleteUser(user: User): void {
     // Implement the logic to delete the user from the users array or perform an API call to delete the user from the backend
     // For example: this.users = this.users.filter(u => u !== user);
   }
 
-  viewUser(user: User): void {
+  viewUser(user): void {
     this.showPopup = true;
     this.SelectedUser = user;
   }
