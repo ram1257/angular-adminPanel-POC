@@ -1,27 +1,47 @@
-# AngularAdminPanel
+# Angular Admin Panel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+- This repository contains an Angular-based admin panel application that provides various features for managing users, viewing notifications, updating profiles, signing in, and logging out. This README.md file will guide you through the setup and usage of the admin panel application.
+- In this application I have used json web server for data management
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Features Images](#features)
+  - [User Management](#user-management)
+  - [Notification Viewer](#notification-viewer)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Before you begin, ensure you have the following installed:
 
-## Running unit tests
+- [Node.js](https://nodejs.org/) (Recommended version: 18.16.1)
+- [Angular CLI](https://angular.io/cli) (Installation: `npm install -g @angular/cli`)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
+1. Clone this repository to your local machine:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   git clone https://github.com/your-username/angular-admin-panel.git
+   cd angular-admin-panel
+2. install the node modules
+   ````bash
+   npm insatll
+3. Run the application (with json web server)
+    ````bash
+    ng serve
+    json-server --watch db.json
+    
+### User Management
+![image](https://github.com/ram1257/angular-adminPanel-POC/assets/129826933/ca418238-ab89-40f5-9f1f-1fd4469f666d)
+### Notification Viewer
+![image](https://github.com/ram1257/angular-adminPanel-POC/assets/129826933/3de1cbc2-940b-4251-bf19-56bd776d499d)
 
-## Further help
+ 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
