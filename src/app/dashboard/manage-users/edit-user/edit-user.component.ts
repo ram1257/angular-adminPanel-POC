@@ -41,7 +41,7 @@ export class EditUserComponent {
         lastName: this.userData.lastName,
         emailId: this.userData.emailId,
         mobileNo: this.userData.mobileNo,
-        resident: this.userData.country,
+        resident: this.userData.resident,
       });
       console.log(data, 'data form');
     });
