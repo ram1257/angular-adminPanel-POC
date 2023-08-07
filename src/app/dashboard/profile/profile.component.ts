@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  Validators,
+} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { LoginServicesService } from 'src/app/services/login-services.service';
 
@@ -9,27 +15,49 @@ import { LoginServicesService } from 'src/app/services/login-services.service';
 })
 export class ProfileComponent {
   userInfoSub: Subscription;
+  profileEdit: FormGroup;
   activeTab: 'editProfile' | 'changePassword' = 'editProfile';
   userData: any;
-  userName: string = 'John Doe';
-  email: string = 'johndoe@example.com';
   oldPassword: string = '';
   newPassword: string = '';
   confirmNewPassword: string = '';
   profileImg: string = '';
+  emailDisable:boolean = true
+  submitted  = false
 
-  constructor(private loginService: LoginServicesService) {
-    this.userInfoSub = loginService.mySubject.subscribe((data) => {
-      console.log(data, 'profile Image', data);
-      this.userData = data
-      this.profileImg = data?.image;
-      this.userName = data?.username;
+  constructor(
+    private loginService: LoginServicesService,
+    private formBuilder: FormBuilder
+  ) {
+    this.profileEdit = this.formBuilder.group({
+      username: ['', Validators.required],
+      email: ['', Validators.required],
     });
+
+    
+  }
+
+  
+  ngOnInit() {
+    this.userInfoSub = this.loginService.mySubject.subscribe((data) => {
+      console.log(data, 'profile Image', data);
+      this.userData = data;
+      this.profileImg = data?.image;
+      this.profileEdit.patchValue({
+        username: data?.username,
+        email: data?.email
+      })
+    });
+    this.profileEdit.get('email').disable()
   }
 
   saveProfile() {
-    this.loginService.setUserinfo({...this.userData,username:this.userName})
-    console.log('Profile saved:', this.userName, this.email);
+    this.submitted = true
+    this.loginService.setUserinfo({
+      ...this.userData,
+      username: this.profileEdit.get('username').value,
+    });
+    console.log('Profile saved:', {...this.userData,username: this.profileEdit.get('username').value});
   }
 
   cancelProfileEdit() {

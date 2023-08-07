@@ -33,7 +33,6 @@ export class EditUserComponent {
     this.route.params.subscribe((params) => {
       this.userId = params['id'];
     });
-    console.log(this.userId, 'userId');
     this.userInformation.getUser(this.userId).subscribe((data) => {
       this.userData = data[0];
       this.userForm.patchValue({
@@ -43,7 +42,6 @@ export class EditUserComponent {
         mobileNo: this.userData.mobileNo,
         resident: this.userData.resident,
       });
-      console.log(data, 'data form');
     });
   }
 
