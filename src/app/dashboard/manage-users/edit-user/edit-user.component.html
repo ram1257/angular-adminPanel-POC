@@ -5,30 +5,51 @@
         <input
           class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           formControlName="firstName" type="text" placeholder="First Name">
+          <div class="text-red-500" *ngIf="userForm.get('firstName').hasError('required') && (userForm.get('firstName').touched || submitted)">
+            First name is required.
+          </div>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName">Last Name</label>
         <input
           class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="lastName" type="text" placeholder="Last Name" formControlName="lastName">
+          <div class="text-red-500" *ngIf="userForm.get('lastName').hasError('required') && (userForm.get('lastName').touched || submitted)">
+            Last name is required.
+          </div>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
         <input
           class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="email" type="email" placeholder="Email" formControlName="emailId">
+          <div class="text-red-500" *ngIf="userForm.get('emailId').hasError('required') && (userForm.get('emailId').touched || submitted)">
+            Email is required 
+          </div>
+          <div class="text-red-500" *ngIf="userForm.get('emailId').hasError('pattern') && (userForm.get('emailId').touched || submitted)">
+            Please enter valid email address 
+          </div>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="mobile">Mobile Number</label>
         <input
           class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="mobile" type="tel" placeholder="Mobile Number" formControlName="mobileNo">
+          <div class="text-red-500" *ngIf="userForm.get('mobileNo').hasError('required') && (userForm.get('mobileNo').touched || submitted)">
+            Mobile number is required 
+          </div>
+          <div class="text-red-500" *ngIf="userForm.get('mobileNo').hasError('pattern') && (userForm.get('mobileNo').touched || submitted)">
+            Enter val id Mobile Number
+          </div>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="country">Country</label>
         <input
           class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="country" type="text" placeholder="Country" formControlName="resident">
+          <div class="text-red-500" *ngIf="userForm.get('resident').hasError('required') && (userForm.get('resident').touched || submitted)">
+            Please enter country name
+          </div>
       </div>
       <div class="flex justify-between">
         <button

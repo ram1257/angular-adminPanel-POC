@@ -15,7 +15,7 @@
     <ul class="flex border-b">
       <li class="mr-1">
         <a
-          class="bg-white inline-block  py-2 px-4 text-blue-700 font-semibold"
+          class="bg-white inline-block  py-2 px-4 text-blue-700 font-semibold cursor-pointer"
           (click)="activeTab = 'editProfile'"
           [ngClass]="{'bg-blue-200 border-l border-t border-r rounded-t':activeTab === 'editProfile','bg-white':activeTab !== 'editProfile'}"
         >
@@ -25,7 +25,7 @@
       <li class="mr-1">
         <a
           [ngClass]="{'bg-blue-100 border-l border-t border-r rounded-t':activeTab === 'changePassword','bg-white':activeTab !== 'changePassword'}"
-          class=" inline-block py-2 px-4 text-blue-700 hover:text-blue-800 font-semibold"
+          class=" inline-block py-2 px-4 text-blue-700 hover:text-blue-800 font-semibold cursor-pointer"
           (click)="activeTab = 'changePassword'"
         >
           Change Password
@@ -44,12 +44,13 @@
         />
       </div>
       <div class="mt-4">
-        <label class="block mb-2 font-bold text-gray-600">Email</label>
+        <label class="block mb-2 font-bold text-gray-600" disabled="true">Email</label>
         <input
           class="w-full border rounded-lg p-2"
           type="email"
           [(ngModel)]="email"
           placeholder="Enter your email"
+          disabled="true"
         />
       </div>
       <div class="mt-8 flex justify-end">

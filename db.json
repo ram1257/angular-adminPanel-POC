@@ -1,44 +1,8 @@
 {
   "userInfo": [
     {
-      "id": "fea57df6-80c3-4cdf-8fc2-bedfdf7ea294",
-      "firstName": "Ramar",
-      "lastName": "Kumartest",
-      "userName": "Ram Kumar",
-      "dob": "2023-05-09 00:00:00",
-      "emailId": "ramnath.tqms@gmail.com",
-      "mobileVerification": false,
-      "emailVerification": false,
-      "socialAccount": false,
-      "countryCode": "+91",
-      "accountStatus": {
-        "id": 1,
-        "accountStatus": "unverified"
-      },
-      "accountType": {
-        "id": 1,
-        "userType": "user"
-      },
-      "profession": null,
-      "gender": null,
-      "createdOn": "2023-06-19 13:40:25",
-      "updatedOn": "2023-06-19 13:40:25",
-      "active": true,
-      "deleted": false,
-      "country": "India1",
-      "inValidAttempts": null,
-      "mobileNo": "8956354941",
-      "registerType": null,
-      "facebookId": null,
-      "googleId": null,
-      "appleId": null,
-      "socialLoginType": null,
-      "profileImage": null,
-      "resident": "India1"
-    },
-    {
       "id": "fe995e64-3b9d-4ef9-ab1f-9c72700dea62",
-      "firstName": "Gfhj",
+      "firstName": "hello",
       "lastName": "Fujb",
       "userName": "Gfhjh Fujb",
       "dob": "1992-11-26 00:00:00",
@@ -63,14 +27,14 @@
       "deleted": false,
       "country": null,
       "inValidAttempts": null,
-      "mobileNo": "24234575",
+      "mobileNo": "2423754512",
       "registerType": null,
       "facebookId": null,
       "googleId": null,
       "appleId": null,
       "socialLoginType": null,
       "profileImage": "profileimages/Back office order.PNG-1685974550708",
-      "resident": "Andorra"
+      "resident": "India"
     },
     {
       "id": "fe78aa9b-7000-4392-9811-29a80e632f97",
@@ -1694,54 +1658,6 @@
     }
   ],
   "notification": [
-    {
-      "id": {
-        "id": "ea2db8d6-5561-4e60-b964-50dd6af50de5",
-        "firstName": "vignesh shri  ",
-        "lastName": "vig",
-        "userName": "Vignesh kalyana",
-        "dob": "2023-05-03 00:00:00",
-        "emailId": "vigneshadmin@yopmail.com",
-        "mobileVerification": false,
-        "emailVerification": false,
-        "socialAccount": false,
-        "countryCode": "+91",
-        "accountStatus": {
-          "id": 2,
-          "accountStatus": "verified"
-        },
-        "accountType": {
-          "id": 2,
-          "accountType": "admin"
-        },
-        "gender": null,
-        "createdOn": "2023-05-26 05:30:14",
-        "updatedOn": "2023-05-26 05:30:14",
-        "active": true,
-        "deleted": false,
-        "country": null,
-        "inValidAttempts": 0,
-        "mobileNo": "8220640240",
-        "registerType": null,
-        "facebookId": null,
-        "googleId": null,
-        "appleId": null,
-        "socialLoginType": null,
-        "profileImage": "profileimages/photo-1535713875002-d1d0cf377fde.jfif-1685079435435",
-        "resident": "Albania"
-      },
-      "notificationTitle": "Weekend End",
-      "active": true,
-      "resident": "All",
-      "sendTo": "TaxdayTesting",
-      "description": "works good ",
-      "notifilicationDateAndTime": null,
-      "receiverId": "e4f9e079-e19d-417e-ae52-8737476c7d75",
-      "status": "Delivered",
-      "isread": true,
-      "createdDate": "2023-06-18 07:14:54",
-      "read": true
-    },
     {
       "id": {
         "id": "ea2db8d6-5561-4e60-b964-50dd6af50de5",

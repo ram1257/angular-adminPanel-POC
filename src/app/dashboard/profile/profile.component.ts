@@ -7,9 +7,10 @@ import { LoginServicesService } from 'src/app/services/login-services.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
-export class ProfileComponent{
+export class ProfileComponent {
   userInfoSub: Subscription;
   activeTab: 'editProfile' | 'changePassword' = 'editProfile';
+  userData: any;
   userName: string = 'John Doe';
   email: string = 'johndoe@example.com';
   oldPassword: string = '';
@@ -19,13 +20,15 @@ export class ProfileComponent{
 
   constructor(private loginService: LoginServicesService) {
     this.userInfoSub = loginService.mySubject.subscribe((data) => {
-      console.log(data,"profile Image",data.image)
+      console.log(data, 'profile Image', data);
+      this.userData = data
       this.profileImg = data?.image;
+      this.userName = data?.username;
     });
   }
 
   saveProfile() {
-    // Logic to save the edited profile (username and email)
+    this.loginService.setUserinfo({...this.userData,username:this.userName})
     console.log('Profile saved:', this.userName, this.email);
   }
 

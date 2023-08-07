@@ -12,6 +12,7 @@ export class EditUserComponent {
   userId: string;
   userForm: FormGroup;
   userData: any;
+  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,7 +24,7 @@ export class EditUserComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       resident: ['', Validators.required],
-      emailId: ['', [Validators.required, Validators.email]],
+      emailId: ['', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
       mobileNo: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
     });
   }
@@ -46,15 +47,29 @@ export class EditUserComponent {
     });
   }
 
+  logFormErrors() {
+    Object.keys(this.userForm.controls).forEach(field => {
+      const control = this.userForm.get(field);
+      const errors = control.errors;
+      if (errors) {
+        console.log(`Form control '${field}' has errors:`, errors);
+      }
+    });
+  }
+
   handleSubmit() {
-    console.log(this.userForm.value);
-    this.userInformation
-      .updateUser(this.userId, this.userForm.value)
-      .subscribe({
-        next: (data) => {
-          alert('user details are updated !');
-          this.router.navigate(['../../'], { relativeTo: this.route });
-        },
-      });
+    console.log(this.userForm,this.userForm.valid)
+    this.logFormErrors()
+    this.submitted = true;
+    if (this.userForm.valid) {
+      this.userInformation
+        .updateUser(this.userId, this.userForm.value)
+        .subscribe({
+          next: (data) => {
+            alert('user details are updated !');
+            this.router.navigate(['../../'], { relativeTo: this.route });
+          },
+        });
+    }
   }
 }
